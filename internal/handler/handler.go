@@ -42,10 +42,10 @@ func InitHandler(db *gorm.DB) {
 
 	api := app.Group("nexdist/pos/api")
 
-	productRepo := repository.NewProductRepository(db)
-	productUseCase := usecase.NewProductUseCase(productRepo)
-	productHandler := NewProductHandler(productUseCase)
-	productHandler.Route(api)
+	exampleRepo := repository.NewExampleRepository(db)
+	exampleUseCase := usecase.NewExampleUseCase(exampleRepo)
+	exampleHandler := NewExampleHandler(exampleUseCase)
+	exampleHandler.Route(api)
 
 	app.Listen(":8080")
 }

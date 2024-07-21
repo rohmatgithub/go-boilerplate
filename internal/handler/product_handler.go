@@ -8,27 +8,27 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-type ProductHandler struct {
-	productUseCase usecase.ProductUseCase
+type ExampleHanlder struct {
+	exampleUsecase usecase.ExampleUseCase
 }
 
-func NewProductHandler(uc usecase.ProductUseCase) *ProductHandler {
-	return &ProductHandler{
-		productUseCase: uc,
+func NewExampleHandler(uc usecase.ExampleUseCase) *ExampleHanlder {
+	return &ExampleHanlder{
+		exampleUsecase: uc,
 	}
 }
 
-func (h *ProductHandler) Route(app fiber.Router) {
+func (h *ExampleHanlder) Route(app fiber.Router) {
 	var ae AbstractController
 
-	api := app.Group("/product")
+	api := app.Group("/example")
 
 	api.Get("/id", func(c *fiber.Ctx) error {
 		return ae.ServeJwtToken(c, "", h.getDetailProduct)
 	})
 }
 
-func (h *ProductHandler) getDetailProduct(c *fiber.Ctx, ctxModel *common.ContextModel) (dto.Payload, common.ErrorModel) {
-	productCode := c.Query("productCode")
-	return h.productUseCase.GetProductByID("NS6173010003515", productCode)
+func (h *ExampleHanlder) getDetailProduct(c *fiber.Ctx, ctxModel *common.ContextModel) (dto.Payload, common.ErrorModel) {
+	exampleCode := c.Query("exampleCode")
+	return h.exampleUsecase.GetExampleByID("NS6173010003515", exampleCode)
 }
