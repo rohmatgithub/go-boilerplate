@@ -21,17 +21,17 @@ var (
 func InitLogger(file *os.File) {
 	multi := io.MultiWriter(file, os.Stdout)
 	logger = zerolog.New(multi).With().Timestamp().Logger()
-	loggerWithCaller = logger.With().Caller().Logger().With().Timestamp().Logger()
+	loggerWithCaller = logger.With().Caller().Logger()
 }
 
 func GetLogger() zerolog.Logger {
 	return logger
 }
 
-func Info(msg string) {
-	loggerWithCaller.Info().Msg(msg)
+func Info() *zerolog.Event {
+	return loggerWithCaller.Info()
 }
 
-func Debug(msg string) {
-	loggerWithCaller.Debug().Msg(msg)
+func Debug() *zerolog.Event {
+	return loggerWithCaller.Debug()
 }

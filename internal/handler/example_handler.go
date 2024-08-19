@@ -24,11 +24,11 @@ func (h *ExampleHanlder) Route(app fiber.Router) {
 	api := app.Group("/example")
 
 	api.Get("/id", func(c *fiber.Ctx) error {
-		return ae.ServeJwtToken(c, "", h.getDetailProduct)
+		return ae.ServeJwtToken(c, "", h.getDetailExample)
 	})
 }
 
-func (h *ExampleHanlder) getDetailProduct(c *fiber.Ctx, ctxModel *common.ContextModel) (dto.Payload, common.ErrorModel) {
+func (h *ExampleHanlder) getDetailExample(c *fiber.Ctx, ctxModel *common.ContextModel) (dto.Payload, common.ErrorModel) {
 	exampleCode := c.Query("exampleCode")
 	return h.exampleUsecase.GetExampleByID("NS6173010003515", exampleCode)
 }

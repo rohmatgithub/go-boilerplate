@@ -1,1 +1,10 @@
 {"level":"info","time":"2024-07-21T21:08:42+07:00","caller":"/home/lemonilo/TUTORIAL/go/go-boilerplate/pkg/applog/zerolog.go:32","time":"2024-07-21T21:08:42+07:00","message":"Hello world"}
+{"level":"info","time":"2024-08-18T16:31:53+07:00","caller":"/home/nexsoft/TUTORIAL/go-boilerplate/pkg/applog/zerolog.go:32","time":"2024-08-18T16:31:53+07:00","message":"Hello world"}
+{"level":"info","time":"2024-08-18T16:32:51+07:00","caller":"/home/nexsoft/TUTORIAL/go-boilerplate/pkg/applog/zerolog.go:32","time":"2024-08-18T16:32:51+07:00","message":"Hello world"}
+{"level":"info","time":"2024-08-18T16:33:05+07:00","caller":"/home/nexsoft/TUTORIAL/go-boilerplate/pkg/applog/zerolog.go:32","time":"2024-08-18T16:33:05+07:00","message":"Hello world"}
+{"level":"info","time":"2024-08-18T16:39:23+07:00","caller":"/home/nexsoft/TUTORIAL/go-boilerplate/main.go:20","time":"2024-08-18T16:39:23+07:00","message":"Hello, world!"}
+{"level":"info","time":"2024-08-18T16:40:48+07:00","caller":"/home/nexsoft/TUTORIAL/go-boilerplate/main.go:20","message":"Hello, world!"}
+{"level":"info","time":"2024-08-18T16:46:30+07:00","caller":"/home/nexsoft/TUTORIAL/go-boilerplate/main.go:22","message":"Hello, world!"}
+{"level":"info","time":"2024-08-18T16:47:13+07:00","caller":"/home/nexsoft/TUTORIAL/go-boilerplate/main.go:20","message":"Hello, world!"}
+{"level":"info","time":"2024-08-18T16:52:06+07:00","caller":"/home/nexsoft/TUTORIAL/go-boilerplate/main.go:22","message":"Hello, world!"}
+{"level":"info","time":"2024-08-18T16:52:56+07:00","caller":"/home/nexsoft/TUTORIAL/go-boilerplate/main.go:20","message":"Hello, world!"}

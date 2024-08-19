@@ -16,7 +16,7 @@ func (ae AbstractController) ServeJwtToken(c *fiber.Ctx, menuConst string, runFu
 	tokenStr := c.Get(constanta.TokenHeaderNameConstanta)
 
 	// validasi token jwt
-	applog.Info(tokenStr)
+	applog.Info().Msg(tokenStr)
 
 	// defer func() {
 	// 	if r := recover(); r != nil {

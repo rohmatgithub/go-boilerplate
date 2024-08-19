@@ -17,7 +17,7 @@ func main() {
 	defer file.Close()
 
 	applog.InitLogger(file)
-	applog.Info("Hello world")
+	applog.Info().Msg("Hello, world!")
 
 	db, err := database.Connect()
 	if err != nil {
