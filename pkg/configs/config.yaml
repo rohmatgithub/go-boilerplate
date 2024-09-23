@@ -1,0 +1,14 @@
+app:
+  name: App Developer
+  port: 8686
+  debug: true
+  version: v1.0.0
+  migrationsPath: pkg/migrates # path folder containing migration files
+  logPath: ./app.log # path file to log application
+
+database:
+  host: localhost
+  port: 5432
+  user: postgres
+  password: mysecretpassword
+  name: mydatabase

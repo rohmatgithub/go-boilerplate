@@ -6,6 +6,7 @@ import (
 
 	"boilerplate/internal/repository"
 	"boilerplate/internal/usecase"
+	"boilerplate/pkg/configs"
 
 	"github.com/gofiber/fiber/v2"
 	"gorm.io/gorm"
@@ -17,7 +18,7 @@ func InitHandler(db *gorm.DB) {
 		CaseSensitive: true,
 		StrictRouting: true,
 		ServerHeader:  "Fiber",
-		AppName:       "POS App v2.0.0",
+		AppName:       fmt.Sprintf("%s %s", configs.App.Name, configs.App.Version),
 		ColorScheme:   fiber.Colors{Green: ""},
 		JSONEncoder:   json.Marshal,
 		JSONDecoder:   json.Unmarshal,
@@ -37,6 +38,7 @@ func InitHandler(db *gorm.DB) {
 	app.Use(middleware)
 	// Mendefinisikan route untuk endpoint '/'
 	app.Get("/", func(c *fiber.Ctx) error {
+		fmt.Println(configs.App.Name)
 		return c.SendString("Hello, World!")
 	})
 
@@ -47,5 +49,5 @@ func InitHandler(db *gorm.DB) {
 	exampleHandler := NewExampleHandler(exampleUseCase)
 	exampleHandler.Route(api)
 
-	app.Listen(":8080")
+	app.Listen(fmt.Sprintf(":%d", configs.App.Port))
 }

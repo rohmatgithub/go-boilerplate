@@ -3,26 +3,29 @@ package main
 import (
 	"boilerplate/internal/handler"
 	"boilerplate/pkg/applog"
+	"boilerplate/pkg/configs"
 	"boilerplate/pkg/database"
 	"log"
-	"os"
 )
 
 func main() {
 
-	file, err := os.OpenFile("./app.log", os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0o666)
+	err := configs.Init()
 	if err != nil {
-		log.Fatalf("failed to open log file: %v", err)
+		log.Fatalf("failed to initialize config: %v", err)
 	}
-	defer file.Close()
 
-	applog.InitLogger(file)
-	applog.Info().Msg("Hello, world!")
+	f, err := applog.InitLogger()
+	if err != nil {
+		log.Fatalf("failed to initialize logger: %v", err)
+	}
+	defer f.Close()
 
-	db, err := database.Connect()
+	db, err := database.ConnectAndMigratePostgres()
 	if err != nil {
 		log.Fatalf("failed to connect database: %v", err)
 	}
 
+	applog.Info().Msg("Application started")
 	handler.InitHandler(db)
 }
