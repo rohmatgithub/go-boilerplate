@@ -12,3 +12,4 @@ database:
   user: postgres
   password: mysecretpassword
   name: mydatabase
+  printQuery: 2 # 1 -> not print, 2 -> print error, 3 -> print warn, 4 -> print info

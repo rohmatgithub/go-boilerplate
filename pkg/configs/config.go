@@ -20,11 +20,12 @@ type app struct {
 }
 
 type database struct {
-	Host     string
-	Port     int
-	User     string
-	Password string
-	Name     string
+	Host       string
+	Port       int
+	User       string
+	Password   string
+	Name       string
+	PrintQuery int
 }
 
 var c Configs

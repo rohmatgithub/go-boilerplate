@@ -11,6 +11,7 @@ import (
 	"gorm.io/driver/mysql"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
+	"gorm.io/gorm/logger"
 )
 
 func Connect() (*gorm.DB, error) {
@@ -53,6 +54,8 @@ func ConnectAndMigratePostgres() (rersult *gorm.DB, err error) {
 	// 3. Gunakan koneksi yang sama dengan GORM
 	return gorm.Open(postgres.New(postgres.Config{
 		Conn: db, // Berikan koneksi `*sql.DB` yang sudah dibuka tadi ke GORM
-	}), &gorm.Config{})
+	}), &gorm.Config{
+		Logger: logger.Default.LogMode(logger.LogLevel(configs.Database.PrintQuery)),
+	})
 
 }

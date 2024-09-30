@@ -38,16 +38,16 @@ func InitHandler(db *gorm.DB) {
 	app.Use(middleware)
 	// Mendefinisikan route untuk endpoint '/'
 	app.Get("/", func(c *fiber.Ctx) error {
-		fmt.Println(configs.App.Name)
 		return c.SendString("Hello, World!")
 	})
 
-	api := app.Group("nexdist/pos/api")
+	api := app.Group("boilerplate/v1")
 
-	exampleRepo := repository.NewExampleRepository(db)
-	exampleUseCase := usecase.NewExampleUseCase(exampleRepo)
-	exampleHandler := NewExampleHandler(exampleUseCase)
+	exampleRepo := repository.NewBookRepository(db)
+	exampleUseCase := usecase.NewBookUseCase(exampleRepo)
+	exampleHandler := NewBookHandler(exampleUseCase)
 	exampleHandler.Route(api)
 
+	app.Use(NotFoundHandler)
 	app.Listen(fmt.Sprintf(":%d", configs.App.Port))
 }

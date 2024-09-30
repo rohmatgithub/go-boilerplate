@@ -19,5 +19,9 @@ func GenerateErrorModel(code int, err string, causedBy error) ErrorModel {
 }
 
 func GenerateInternalDBServerError(causedBy error) ErrorModel {
-	return GenerateErrorModel(500, "E-5-MDB-DBS-001", causedBy)
+	return GenerateErrorModel(500, "E-5-APP-DBS-001", causedBy)
+}
+
+func GenerateUnknownError(causedBy error) ErrorModel {
+	return GenerateErrorModel(500, "E-5-APP-SRV-001", causedBy)
 }

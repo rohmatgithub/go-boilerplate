@@ -1,10 +1,11 @@
 package common
 
 type ContextModel struct {
-	UserID    string
-	CompanyID string
-	BranchID  string
-	KassaID   string
+	UserID      string
+	CompanyID   string
+	BranchID    string
+	KassaID     string
+	LoggerModel LoggerModel
 }
 
 type LoggerModel struct {
@@ -15,4 +16,6 @@ type LoggerModel struct {
 	ByteIn      int
 	Status      int
 	Path        string
+	Message     string
+	Code        string
 }

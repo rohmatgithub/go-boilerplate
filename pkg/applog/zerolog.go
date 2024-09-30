@@ -43,3 +43,7 @@ func Info() *zerolog.Event {
 func Debug() *zerolog.Event {
 	return loggerWithCaller.Debug()
 }
+
+func Error() *zerolog.Event {
+	return loggerWithCaller.Error()
+}
