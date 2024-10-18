@@ -6,6 +6,7 @@ type ContextModel struct {
 	BranchID    string
 	KassaID     string
 	LoggerModel LoggerModel
+	Locale      string
 }
 
 type LoggerModel struct {

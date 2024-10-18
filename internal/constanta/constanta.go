@@ -9,4 +9,10 @@ const (
 	IPAddressConstanta              = "X-Forwarded-For"
 	SourceConstanta                 = "X-Source"
 	ApplicationContextConstanta key = "application_context"
+	ActionAdd                       = "add"
+	ActionUpdate                    = "update"
+	ActionDelete                    = "delete"
+	ActionDeleteAll                 = "delete-all"
+	ActionGetList                   = "get-list"
+	ActionGetDetail                 = "get-detail"
 )

@@ -1,13 +1,13 @@
 package handler
 
 import (
+	"boilerplate/internal/common"
 	"boilerplate/internal/constanta"
 	"boilerplate/internal/dto"
 	"context"
 	"os"
 	"strconv"
 
-	"boilerplate/internal/common"
 	"boilerplate/pkg/applog"
 
 	"github.com/gofiber/fiber/v2"

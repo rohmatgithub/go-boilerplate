@@ -1,0 +1,18 @@
+{
+    "E-401-AUTH-1": "Token tidak valid atau telah kedaluwarsa",
+    "E-401-AUTH-2": "Sesi telah kedaluwarsa, silakan masuk lagi",
+    "E-403-ACL-1": "Anda tidak memiliki izin untuk melakukan tindakan ini",
+    "E-403-ACL-2": "Akses terlarang",
+    "E-400-VAL-1": "{{.field}} diperlukan",
+    "E-400-VAL-2": "Field '{{.field}}' harus terdiri dari setidaknya {{.min}} karakter",
+    "E-400-VAL-3": "Field '{{.field}}' tidak boleh melebihi {{.max}} karakter",
+    "E-400-VAL-4": "Format '{{.field}}' tidak valid",
+    "E-400-VAL-5": "Nilai untuk '{{.field}}' harus minimal {{.min}}",
+    "E-400-VAL-6": "Nilai untuk '{{.field}}' tidak boleh lebih dari {{.max}}",
+    "E-400-DTO-5": "Field DTO yang diperlukan hilang",
+    "E-400-DTO-6": "Validasi gagal",
+    "E-400-JSON-7": "Format JSON tidak valid",
+    "E-500-SRV-1": "Kesalahan server internal",
+    "E-500-DBS-2": "Kesalahan basis data",
+    "E-500-SRV-3": "Layanan tidak tersedia"
+}

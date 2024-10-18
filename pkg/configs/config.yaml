@@ -5,6 +5,7 @@ app:
   version: v1.0.0
   migrationsPath: pkg/migrates # path folder containing migration files
   logPath: ./app.log # path file to log application
+  i18nPath: /home/nexsoft/TUTORIAL/go/go-boilerplate/pkg/i18n # path folder containing i18n files
 
 database:
   host: localhost
@@ -13,3 +14,8 @@ database:
   password: mysecretpassword
   name: mydatabase
   printQuery: 2 # 1 -> not print, 2 -> print error, 3 -> print warn, 4 -> print info
+  connMaxLifetime: 30 # in minutes
+  connMaxIdleTime: 10 # in minutes
+  maxOpenConns: 100
+  maxIdleConns: 10
+

@@ -1,0 +1,8 @@
+{
+    "add": "Data berhasil disimpan.",
+    "update": "Data berhasil diperbarui.",
+    "delete": "Data berhasil dihapus.",
+    "delete-all": "Semua data berhasil dihapus.",
+    "get-list": "Daftar data berhasil diambil.",
+    "get-detail": "Detail data berhasil diambil."
+}

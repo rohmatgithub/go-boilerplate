@@ -1,0 +1,18 @@
+{
+    "E-401-AUTH-1": "Invalid or expired token",
+    "E-401-AUTH-2": "Session expired, please log in again",
+    "E-403-ACL-1": "You do not have permission to perform this action",
+    "E-403-ACL-2": "Forbidden access",
+    "E-400-VAL-1": "'{{.field}}' is required",
+    "E-400-VAL-2": "Field '{{.field}}' must be at least {{.min}} characters",
+    "E-400-VAL-3": "Field '{{.field}}' must not exceed {{.max}} characters",
+    "E-400-VAL-4": "'{{.field}}' has an invalid format",
+    "E-400-VAL-5": "The value for '{{.field}}' must be at least {{.min}}",
+    "E-400-VAL-6": "The value for '{{.field}}' must be at most {{.max}}",
+    "E-400-DTO-5": "Missing required DTO fields",
+    "E-400-DTO-6": "Validation failed",
+    "E-400-JSON-7": "Invalid JSON format",
+    "E-500-SRV-1": "Internal server error",
+    "E-500-DBS-2": "Database error",
+    "E-500-SRV-3": "Service unavailable"
+}

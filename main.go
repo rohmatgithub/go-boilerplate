@@ -5,6 +5,7 @@ import (
 	"boilerplate/pkg/applog"
 	"boilerplate/pkg/configs"
 	"boilerplate/pkg/database"
+	"boilerplate/pkg/util"
 	"log"
 )
 
@@ -27,5 +28,6 @@ func main() {
 	}
 
 	applog.Info().Msg("Application started")
+	util.InitializeI18n()
 	handler.InitHandler(db)
 }

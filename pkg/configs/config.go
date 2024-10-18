@@ -1,6 +1,9 @@
 package configs
 
 import (
+	"fmt"
+	"os"
+
 	"github.com/spf13/viper"
 )
 
@@ -17,15 +20,20 @@ type app struct {
 	Test           string
 	MigrationsPath string
 	LogPath        string
+	I18nPath       string
 }
 
 type database struct {
-	Host       string
-	Port       int
-	User       string
-	Password   string
-	Name       string
-	PrintQuery int
+	Host            string
+	Port            int
+	User            string
+	Password        string
+	Name            string
+	PrintQuery      int
+	ConnMaxLifeTime int
+	ConnMaxIdleTime int
+	MaxIdleConns    int
+	MaxOpenConns    int
 }
 
 var c Configs
@@ -35,7 +43,12 @@ var Database database
 func Init() error {
 	viper.SetConfigName("config")
 	viper.SetConfigType("yaml")
-	viper.AddConfigPath("./pkg/configs")
+	configPath := os.Getenv("CONFIG_PATH")
+	fmt.Println(configPath)
+	if configPath == "" {
+		configPath = "./pkg/configs"
+	}
+	viper.AddConfigPath(configPath)
 	viper.AddConfigPath("$HOME/.myapp")
 
 	// Tentukan environment variables prefix

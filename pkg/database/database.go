@@ -4,6 +4,7 @@ import (
 	"boilerplate/pkg/configs"
 	"database/sql"
 	"fmt"
+	"time"
 
 	"github.com/golang-migrate/migrate/v4"
 	postgresv4 "github.com/golang-migrate/migrate/v4/database/postgres"
@@ -32,6 +33,11 @@ func ConnectAndMigratePostgres() (rersult *gorm.DB, err error) {
 	if err != nil {
 		return
 	}
+
+	db.SetConnMaxLifetime(time.Duration(configs.Database.ConnMaxLifeTime) * time.Minute)
+	db.SetConnMaxIdleTime(time.Duration(configs.Database.ConnMaxIdleTime) * time.Minute)
+	db.SetMaxIdleConns(configs.Database.MaxIdleConns)
+	db.SetMaxOpenConns(configs.Database.MaxOpenConns)
 
 	// 2. Gunakan koneksi untuk golang-migrate
 	driver, err := postgresv4.WithInstance(db, &postgresv4.Config{})

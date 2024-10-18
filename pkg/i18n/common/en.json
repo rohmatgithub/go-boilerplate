@@ -1,0 +1,8 @@
+{
+    "add": "Data has been saved successfully.",
+    "update": "Data has been updated successfully.",
+    "delete": "Data has been deleted successfully.",
+    "delete-all": "All data has been deleted successfully.",
+    "get-list": "List of data has been retrieved successfully.",
+    "get-detail": "Data has been retrieved successfully."
+}

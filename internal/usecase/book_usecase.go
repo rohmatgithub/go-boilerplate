@@ -9,6 +9,7 @@ import (
 
 type BookUseCase interface {
 	GetBookByID(id int64) (dto.Payload, common.ErrorModel)
+	CreateBook(book *dto.BookRequest, ctxModel *common.ContextModel) (result dto.Payload, errMdl common.ErrorModel)
 }
 
 type bookUsecase struct {
@@ -24,7 +25,7 @@ func NewBookUseCase(bookRepository repository.BookRepository) BookUseCase {
 func (u *bookUsecase) GetBookByID(id int64) (result dto.Payload, errMdl common.ErrorModel) {
 	ex, err := u.bookRepository.GetExampleByID(id)
 	if err != nil {
-		errMdl = common.GenerateInternalDBServerError(err)
+		errMdl = common.GenerateDatabaseError(err)
 		return
 	}
 
@@ -39,5 +40,10 @@ func (u *bookUsecase) GetBookByID(id int64) (result dto.Payload, errMdl common.E
 			Stock:         fmt.Sprintf("%d", ex.Stock),
 		},
 	}
+	return
+}
+
+func (u *bookUsecase) CreateBook(book *dto.BookRequest, ctxModel *common.ContextModel) (result dto.Payload, errMdl common.ErrorModel) {
+	fmt.Println(book)
 	return
 }

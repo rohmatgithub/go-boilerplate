@@ -7,6 +7,7 @@ import (
 	"boilerplate/internal/repository"
 	"boilerplate/internal/usecase"
 	"boilerplate/pkg/configs"
+	"boilerplate/pkg/util"
 
 	"github.com/gofiber/fiber/v2"
 	"gorm.io/gorm"
@@ -43,9 +44,10 @@ func InitHandler(db *gorm.DB) {
 
 	api := app.Group("boilerplate/v1")
 
+	validate := util.NewAppValidator()
 	exampleRepo := repository.NewBookRepository(db)
 	exampleUseCase := usecase.NewBookUseCase(exampleRepo)
-	exampleHandler := NewBookHandler(exampleUseCase)
+	exampleHandler := NewBookHandler(exampleUseCase, validate)
 	exampleHandler.Route(api)
 
 	app.Use(NotFoundHandler)
