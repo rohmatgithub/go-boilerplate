@@ -62,9 +62,9 @@ func (v *AppValidator) ValidateRequest(ctxModel *common.ContextModel, dt interfa
 	return nil, nil
 }
 
-func getErrorCode(jsonTag string, err validator.FieldError) (string, map[string]string) {
+func getErrorCode(jsonTag string, err validator.FieldError) (string, map[string]interface{}) {
 	var codeError string
-	templateData := make(map[string]string)
+	templateData := make(map[string]interface{})
 
 	switch err.ActualTag() {
 	case "required":

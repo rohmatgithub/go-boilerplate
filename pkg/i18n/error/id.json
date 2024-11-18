@@ -12,6 +12,7 @@
     "E-400-DTO-5": "Field DTO yang diperlukan hilang",
     "E-400-DTO-6": "Validasi gagal",
     "E-400-JSON-7": "Format JSON tidak valid",
+    "E-400-SRV-8": "Data tidak ditemukan",
     "E-500-SRV-1": "Kesalahan server internal",
     "E-500-DBS-2": "Kesalahan basis data",
     "E-500-SRV-3": "Layanan tidak tersedia"

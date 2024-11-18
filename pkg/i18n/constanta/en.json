@@ -1,4 +1,5 @@
 {
     "product": "product",
-    "name": "name"
+    "name": "name",
+    "published_date": "Published Date"
 }

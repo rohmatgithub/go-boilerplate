@@ -1,10 +1,10 @@
 package common
 
 type ErrorModel struct {
-	Code      int
-	ErrorCode string
-	CausedBy  error
-	// ErrorParameter        []ErrorParameter
+	Code                  int
+	ErrorCode             string
+	CausedBy              error
+	ErrorParameter        map[string]interface{}
 	AdditionalInformation interface{}
 }
 
@@ -53,7 +53,10 @@ func GenerateMaximumCharactersError(field string, max int) ErrorModel {
 
 // Fungsi untuk menghasilkan error Bad Request - Invalid Format
 func GenerateInvalidFormatError(field string) ErrorModel {
-	return GenerateErrorModel(400, "E-400-VAL-4", nil) // Format {{.field}} tidak valid
+	errMdl := GenerateErrorModel(400, "E-400-VAL-4", nil) // Format {{.field}} tidak valid
+	errMdl.ErrorParameter = make(map[string]interface{})
+	errMdl.ErrorParameter["field"] = field
+	return errMdl
 }
 
 // Fungsi untuk menghasilkan error Bad Request - Missing DTO Fields
@@ -69,6 +72,10 @@ func GenerateValidationFailedError() ErrorModel {
 // Fungsi untuk menghasilkan error Bad Request - Invalid JSON Format
 func GenerateInvalidJSONFormatError() ErrorModel {
 	return GenerateErrorModel(400, "E-400-JSON-7", nil) // Format JSON tidak valid
+}
+
+func GenerateDataNotFoundError() ErrorModel {
+	return GenerateErrorModel(400, "E-400-SRV-8", nil) // Data tidak ditemukan
 }
 
 // Fungsi untuk menghasilkan error Internal Server Error

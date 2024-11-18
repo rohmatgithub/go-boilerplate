@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"path"
+	"reflect"
 
 	"github.com/nicksnyder/go-i18n/v2/i18n"
 	"golang.org/x/text/language"
@@ -24,13 +25,20 @@ func InitializeI18n() {
 	bundle.MustLoadMessageFile(path.Join(configs.App.I18nPath, "common/en.json"))
 }
 
-func GetI18nErrorMessage(locale string, messageID string, templateData map[string]string) string {
+func GetI18nErrorMessage(locale string, messageID string, templateData map[string]interface{}) string {
 	defer func() {
 		if r := recover(); r != nil {
 			fmt.Println("err : ", r)
 		}
 	}()
 	localizer := i18n.NewLocalizer(bundle, locale)
+
+	for key, value := range templateData {
+		dtType := reflect.TypeOf(value)
+		if dtType.Kind() == reflect.String {
+			templateData[key] = localizer.MustLocalize(&i18n.LocalizeConfig{MessageID: value.(string)})
+		}
+	}
 
 	translation := localizer.MustLocalize(&i18n.LocalizeConfig{
 		MessageID:    messageID,

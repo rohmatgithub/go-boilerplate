@@ -1,6 +1,7 @@
 package test
 
 import (
+	"boilerplate/internal/common"
 	"boilerplate/internal/dto"
 	"boilerplate/pkg/configs"
 	"boilerplate/pkg/util"
@@ -28,7 +29,7 @@ func TestBookDto(t *testing.T) {
 
 	// b = dto.BookRequest{}
 
-	maps, err := validate.ValidateRequest(b)
+	maps, err := validate.ValidateRequest(&common.ContextModel{Locale: "en"}, b)
 	fmt.Println(maps)
 	if err != nil {
 		t.Error(err)

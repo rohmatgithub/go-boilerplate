@@ -12,6 +12,7 @@
     "E-400-DTO-5": "Missing required DTO fields",
     "E-400-DTO-6": "Validation failed",
     "E-400-JSON-7": "Invalid JSON format",
+    "E-400-SRV-8": "Data not found",
     "E-500-SRV-1": "Internal server error",
     "E-500-DBS-2": "Database error",
     "E-500-SRV-3": "Service unavailable"

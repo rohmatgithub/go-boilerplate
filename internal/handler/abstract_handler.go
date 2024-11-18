@@ -59,7 +59,7 @@ func generateResponseError(c *fiber.Ctx, ctxModel *common.ContextModel, payload 
 	c.Status(errMdl.Code)
 	payload.Status.Success = false
 	payload.Status.Code = errMdl.ErrorCode
-	payload.Status.Message = util.GetI18nErrorMessage(ctxModel.Locale, errMdl.ErrorCode, nil)
+	payload.Status.Message = util.GetI18nErrorMessage(ctxModel.Locale, errMdl.ErrorCode, errMdl.ErrorParameter)
 }
 
 func generateResponseSuccess(action string, c *fiber.Ctx, ctxModel *common.ContextModel, payload *dto.Payload) {

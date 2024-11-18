@@ -54,5 +54,5 @@ func (h *BookHanlder) createBook(c *fiber.Ctx, ctxModel *common.ContextModel) (r
 		errMdl = common.GenerateValidationFailedError()
 		return
 	}
-	return h.bookUsecase.CreateBook(&req, ctxModel)
+	return h.bookUsecase.InsertBook(&req, ctxModel)
 }
